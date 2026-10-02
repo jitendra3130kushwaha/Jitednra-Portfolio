@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jitendra Kumar | Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #020817;
+            color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .glow {
+            box-shadow: 0 0 25px rgba(0, 119, 255, 0.25);
+        }
+
+        /* LIGHT THEME */
+        body.light-theme {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        body.light-theme .dark-bg {
+            background: #ffffff;
+        }
+
+        body.light-theme .dark-card {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        body.light-theme .text-light {
+            color: #475569;
+        }
+
+        body.light-theme .border-light {
+            border-color: #cbd5e1;
+        }
+
+        body.light-theme .navbar {
+            background: rgba(255, 255, 255, 0.90);
+        }
+
+        body.light-theme .menu-box {
+            background: #ffffff;
+            border-color: #cbd5e1;
+        }
+
+        body.light-theme .menu-item {
+            color: #334155;
+        }
+
+        body.light-theme .menu-item:hover {
+            background: #f1f5f9;
+        }
+    </style>
+</head>
+
+
+<body class="text-white">
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar border-b border-slate-800 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+
+    <nav class="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#home" class="text-2xl font-bold text-blue-500">
+            &lt;/&gt;
+            <span class="text-current ml-1">
+                Jitendra
+            </span>
+        </a>
+
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 text-slate-300">
+
+            <a href="#home" class="hover:text-blue-400">
+                Home
+            </a>
+
+            <a href="#about" class="hover:text-blue-400">
+                About
+            </a>
+
+            <a href="#videos" class="hover:text-blue-400">
+                Videos
+            </a>
+
+            <a href="#contact" class="hover:text-blue-400">
+                Contact
+            </a>
+
+        </div>
+
+
+        <!-- Mobile Menu Button -->
+        <button
+            id="menuButton"
+            class="md:hidden text-2xl"
+            onclick="toggleMenu()"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </nav>
+
+
+    <!-- ================= MOBILE MENU ================= -->
+
+    <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-slate-800"
+    >
+
+        <div class="max-w-6xl mx-auto px-5 py-4">
+
+            <!-- Navigation -->
+            <div class="flex flex-col gap-1">
+
+                <a
+                    href="#home"
+                    onclick="closeMenu()"
+                    class="menu-item py-3 px-3 rounded-lg"
+                >
+                    <i class="fa-solid fa-house w-6"></i>
+                    Home
+                </a>
+
+                <a
+                    href="#about"
+                    onclick="closeMenu()"
+                    class="menu-item py-3 px-3 rounded-lg"
+                >
+                    <i class="fa-solid fa-user w-6"></i>
+                    About
+                </a>
+
+                <a
+                    href="#videos"
+                    onclick="closeMenu()"
+                    class="menu-item py-3 px-3 rounded-lg"
+                >
+                    <i class="fa-brands fa-youtube w-6"></i>
+                    Videos
+                </a>
+
+                <a
+                    href="#contact"
+                    onclick="closeMenu()"
+                    class="menu-item py-3 px-3 rounded-lg"
+                >
+                    <i class="fa-solid fa-envelope w-6"></i>
+                    Contact
+                </a>
+
+
+                <!-- Settings -->
+                <button
+                    onclick="toggleSettings()"
+                    class="menu-item w-full text-left py-3 px-3 rounded-lg"
+                >
+                    <i class="fa-solid fa-gear w-6"></i>
+                    Settings
+                    <i
+                        id="settingsArrow"
+                        class="fa-solid fa-chevron-down float-right mt-1"
+                    ></i>
+                </button>
+
+
+                <!-- Settings Panel -->
+                <div
+                    id="settingsPanel"
+                    class="hidden ml-3 mt-1 border-l border-slate-700 pl-4"
+                >
+
+                    <!-- Theme -->
+                    <div class="py-3">
+
+                        <p class="font-semibold mb-3">
+                            <i class="fa-solid fa-palette mr-2 text-blue-500"></i>
+                            Theme
+                        </p>
+
+
+                        <div class="flex gap-2">
+
+                            <button
+                                onclick="setTheme('dark')"
+                                class="bg-slate-800 hover:bg-slate-700
+                                px-4 py-2 rounded-lg text-sm"
+                            >
+                                <i class="fa-solid fa-moon mr-1"></i>
+                                Dark
+                            </button>
+
+
+                            <button
+                                onclick="setTheme('light')"
+                                class="bg-slate-200 text-slate-800
+                                hover:bg-slate-300
+                                px-4 py-2 rounded-lg text-sm"
+                            >
+                                <i class="fa-solid fa-sun mr-1"></i>
+                                Light
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="border-b border-slate-800">
+
+    <div class="max-w-6xl mx-auto px-5 py-16 md:py-24">
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+                <p class="text-xl text-slate-300 text-light mb-2">
+                    Hello, I'm
+                </p>
+
+
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+
+                    Jitendra
+
+                    <span class="text-blue-500">
+                        Kushwaha
+                    </span>
+
+                </h1>
+
+
+                <h2 class="text-xl md:text-2xl font-semibold mt-4">
+
+                    CSE Student & Web Developer
+
+                </h2>
+
+
+                <p class="text-slate-400 text-light mt-6 leading-7 max-w-xl">
+
+                    I love building websites, learning new technologies
+                    and creating useful things. This is my portfolio where
+                    you can know more about me, my work and my journey.
+
+                </p>
+
+
+                <!-- Buttons -->
+
+                <div class="flex flex-wrap gap-4 mt-8">
+
+                    <a
+                        href="#videos"
+                        class="bg-blue-500 hover:bg-blue-600
+                        px-6 py-3 rounded-lg font-semibold
+                        transition shadow-lg shadow-blue-500/20"
+                    >
+                        View Projects
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="border border-blue-500
+                        hover:bg-blue-500/10
+                        px-6 py-3 rounded-lg font-semibold
+                        transition"
+                    >
+                        Contact Me
+                    </a>
+
+                </div>
+
+
+                <!-- Social Icons -->
+
+                <div class="flex gap-7 mt-8 text-2xl">
+
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        class="hover:text-blue-500 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a
+                        href="https://youtube.com/@jitendrakushwaha-v5s?si=v4xxTNujs59f-iKd"
+                        target="_blank"
+                        class="hover:text-red-500 transition"
+                    >
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/jeetu_76.6?stkn=N2w5Y2s5a2x2Z2Z2"
+                        target="_blank"
+                        class="hover:text-pink-500 transition"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/jitendra-kushwaha-07131a440?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        target="_blank"
+                        class="hover:text-blue-500 transition"
+                    >
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div class="flex justify-center md:justify-end">
+
+                <div
+                    class="w-64 h-64 md:w-80 md:h-80
+                    rounded-2xl overflow-hidden
+                    border-2 border-blue-500
+                    glow"
+                >
+
+                    <img
+                        src="https://lh3.googleusercontent.com/d/16A5-x-YdEw3JRDFprHRHSrCcYc79evzQ=s220?authuser=0"
+                        alt="Jitendra Kushwaha"
+                        class="w-full h-full object-cover"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="border-b border-slate-800">
+
+    <div class="max-w-6xl mx-auto px-5 py-16">
+
+        <p class="text-blue-500 font-semibold text-lg">
+            | About Me
+        </p>
+
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">
+            Who I Am
+        </h2>
+
+
+        <p class="text-slate-400 text-light leading-7 max-w-4xl mt-6">
+
+            I am Jitendra Kushwaha, a CSE student, passionate about
+            web development, coding and technology. I am always
+            curious to learn new things and build projects that
+            solve real problems.
+
+        </p>
+
+
+        <!-- INFO -->
+
+        <div class="grid sm:grid-cols-3 gap-8 mt-10">
+
+
+            <!-- College -->
+
+            <div class="flex gap-4 items-center">
+
+                <i class="fa-solid fa-graduation-cap
+                text-3xl text-blue-500"></i>
+
+                <div>
+
+                    <h3 class="font-bold text-lg">
+                        College
+                    </h3>
+
+                    <p class="text-slate-400 text-light">
+                        RGPV (CSE)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Location -->
+
+            <div class="flex gap-4 items-center">
+
+                <i class="fa-solid fa-location-dot
+                text-3xl text-blue-500"></i>
+
+                <div>
+
+                    <h3 class="font-bold text-lg">
+                        Location
+                    </h3>
+
+                    <p class="text-slate-400 text-light">
+                        Bhopal, MP
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Age -->
+
+            <div class="flex gap-4 items-center">
+
+                <i class="fa-solid fa-user
+                text-3xl text-blue-500"></i>
+
+                <div>
+
+                    <h3 class="font-bold text-lg">
+                        Age
+                    </h3>
+
+                    <p class="text-slate-400 text-light">
+                        5 June 2007
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUOTE -->
+
+        <div
+            class="border border-slate-700 border-light
+            rounded-xl p-8 mt-12
+            bg-slate-900/40 dark-card"
+        >
+
+            <p class="text-blue-400 text-xl md:text-2xl
+            font-semibold italic">
+
+                "Consistency builds success."
+
+            </p>
+
+            <p class="text-right text-slate-400 text-light mt-6">
+
+                -- Jitendra
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= YOUTUBE ================= -->
+
+<section id="videos">
+
+    <div class="max-w-6xl mx-auto px-5 py-16">
+
+        <p class="text-blue-500 font-semibold text-lg">
+            | My Videos
+        </p>
+
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">
+            YouTube Videos
+        </h2>
+
+        <p class="text-slate-400 text-light mt-4">
+            Some of my latest videos and projects.
+        </p>
+
+
+        <div class="grid md:grid-cols-3 gap-7 mt-10">
+
+
+            <!-- VIDEO 1 -->
+
+            <div
+                class="dark-card bg-slate-900 border border-slate-800
+                border-light rounded-xl overflow-hidden
+                hover:border-blue-500 transition"
+            >
+
+                <div class="aspect-video">
+
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/VIDEO_ID_1"
+                        title="YouTube video 1"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <div class="p-5">
+
+                    <h3 class="font-bold text-lg">
+                        My First Project
+                    </h3>
+
+                    <p class="text-slate-400 text-light text-sm mt-2">
+                        My web development project.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 2 -->
+
+            <div
+                class="dark-card bg-slate-900 border border-slate-800
+                border-light rounded-xl overflow-hidden
+                hover:border-blue-500 transition"
+            >
+
+                <div class="aspect-video">
+
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/VIDEO_ID_2"
+                        title="YouTube video 2"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <div class="p-5">
+
+                    <h3 class="font-bold text-lg">
+                        Coding Journey
+                    </h3>
+
+                    <p class="text-slate-400 text-light text-sm mt-2">
+                        Learning and building with code.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 3 -->
+
+            <div
+                class="dark-card bg-slate-900 border border-slate-800
+                border-light rounded-xl overflow-hidden
+                hover:border-blue-500 transition"
+            >
+
+                <div class="aspect-video">
+
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/VIDEO_ID_3"
+                        title="YouTube video 3"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <div class="p-5">
+
+                    <h3 class="font-bold text-lg">
+                        Latest Video
+                    </h3>
+
+                    <p class="text-slate-400 text-light text-sm mt-2">
+                        Check out my latest work.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+    id="contact"
+    class="border-t border-slate-800"
+>
+
+    <div class="max-w-6xl mx-auto px-5 py-16 text-center">
+
+        <p class="text-blue-500 font-semibold">
+            || Contact ||
+        </p>
+
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">
+            Let's Connect
+        </h2>
+
+        <p class="text-slate-400 text-light mt-4">
+            Want to discuss a project or just say hello?
+        </p>
+
+        <button type="button"
+        class="inline-block mt-7
+            bg-blue-500 hover:bg-blue-600
+            px-7 py-3 rounded-lg
+            font-semibold transition"   
+        onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=jitendrakushwaha3130@gmail..com&su=Portfolio%20Inquiry','_blank')">
+            Sen Me an Email
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="border-t border-slate-800">
+
+    <div
+        class="max-w-6xl mx-auto px-5 py-6
+        text-center text-slate-500"
+    >
+
+        © 2026 Jitendra Kumar. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Mobile Menu
+    function toggleMenu() {
+
+        const menu = document.getElementById("mobileMenu");
+
+        menu.classList.toggle("hidden");
+
+    }
+
+
+    // Close Mobile Menu
+    function closeMenu() {
+
+        document
+            .getElementById("mobileMenu")
+            .classList.add("hidden");
+
+    }
+
+
+    // Settings
+    function toggleSettings() {
+
+        const panel =
+            document.getElementById("settingsPanel");
+
+        const arrow =
+            document.getElementById("settingsArrow");
+
+        panel.classList.toggle("hidden");
+
+        if (panel.classList.contains("hidden")) {
+
+            arrow.classList.remove("fa-chevron-up");
+            arrow.classList.add("fa-chevron-down");
+
+        } else {
+
+            arrow.classList.remove("fa-chevron-down");
+            arrow.classList.add("fa-chevron-up");
+
+        }
+
+    }
+
+
+    // Theme
+    function setTheme(theme) {
+
+        if (theme === "light") {
+
+            document.body.classList.add("light-theme");
+
+            localStorage.setItem("theme", "light");
+
+        } else {
+
+            document.body.classList.remove("light-theme");
+
+            localStorage.setItem("theme", "dark");
+
+        }
+
+    }
+
+
+    // Load saved theme
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light-theme");
+
+    }
+
+</script>
+
+
+</body>
+</html>
